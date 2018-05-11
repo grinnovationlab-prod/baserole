@@ -8,5 +8,10 @@
   "job_dispatch": {
     "version": "v2"
   },
+  "delivery-truck":{
+    "publish": {
+      "chef_server": "true"
+    }
+  },
   "dependencies": []
 }
