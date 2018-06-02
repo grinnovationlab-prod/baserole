@@ -11,6 +11,11 @@
   "delivery-truck":{
     "publish": {
       "chef_server": "true"
+    },
+    "lint": {
+      "foodcritic": {
+        "ignore_rules": ["FC046"]
+      }
     }
   },
   "dependencies": []
