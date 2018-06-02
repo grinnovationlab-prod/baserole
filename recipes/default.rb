@@ -17,3 +17,6 @@ end
 windows_service 'push-jobs-client' do
     action :start
   end
+
+#Add the audit cookbook
+include_recipe 'audit::default'
