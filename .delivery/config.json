@@ -16,6 +16,9 @@
       "foodcritic": {
         "ignore_rules": ["FC046"]
       }
+    },
+    "deploy": {
+      "search": ""
     }
   },
   "dependencies": []
