@@ -18,7 +18,7 @@
       }
     },
     "deploy": {
-      "search": "recipes:baserole"
+      "search": "recipes:baserole*"
     }
   },
   "dependencies": []
