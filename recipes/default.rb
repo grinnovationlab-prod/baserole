@@ -29,5 +29,13 @@ powershell_script 'Chocolatey' do
     not_if 'Test-Path $env:programdata\chocolatey\bin\choco.exe'
   end
 
+# Add nuget package provider
+powershell_script 'Nuget' do
+    code <<-EOH
+      Install-PackageProvider Nuget -Force
+    EOH
+    not_if '[bool](Get-PackageProvider nuget -ErrorAction SilentlyContinue)'
+  end
+
 #Add the audit cookbook
 include_recipe 'audit::default'
