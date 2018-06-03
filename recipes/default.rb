@@ -2,20 +2,31 @@
 # Cookbook Name:: baserole
 # Recipe:: default
 #
-# Copyright 2018, YOUR_COMPANY_NAME
+# Copyright 2018, Nic INC
 #
 # All rights reserved - Do Not Redistribute
 #
 
-# Install the push jobs ingredient
+# Setup the chef client in the way we want
+include_recipe 'chef-client::task'
+
+
+# Install the push jobs client and make sure the service is started
 chef_ingredient 'push-jobs-client' do
     action :install
     version :latest
 end
 
-# make sure the created service is running
 windows_service 'push-jobs-client' do
     action :start
+  end
+
+# Install chocolatey
+powershell_script 'Chocolatey' do
+    code <<-EOH
+      iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+    EOH
+    not_if 'Test-Path $env:programdata\chocolatey\bin\choco.exe'
   end
 
 #Add the audit cookbook
