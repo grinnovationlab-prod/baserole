@@ -37,5 +37,16 @@ powershell_script 'Nuget' do
     not_if '[bool](Get-PackageProvider nuget -ErrorAction SilentlyContinue)'
   end
 
+# Set timezone via dsc
+powershell_package 'ComputerManagementDsc'
+
+dsc_resource 'Set time zone' do
+    resource :TimeZone
+    module_name 'ComputerManagementDsc'
+    property :IsSingleInstance, 'Yes'
+    property :TimeZone, 'GMT Standard Time'
+  end
+
+
 #Add the audit cookbook
 include_recipe 'audit::default'
