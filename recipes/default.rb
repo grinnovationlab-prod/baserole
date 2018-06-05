@@ -38,11 +38,11 @@ powershell_script 'Nuget' do
   end
 
 # Set timezone via dsc
-powershell_package 'ComputerManagementDsc'
+powershell_package 'xTimezone'
 
 dsc_resource 'Set time zone' do
-    resource :TimeZone
-    module_name 'ComputerManagementDsc'
+    resource :xTimeZone
+    module_name 'xTimezone'
     property :IsSingleInstance, 'Yes'
     property :TimeZone, 'GMT Standard Time'
   end
