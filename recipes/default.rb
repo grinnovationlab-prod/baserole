@@ -6,8 +6,6 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-#ensure we are running the latest chef client
-chef_client_updater 'Install latest'
 
 # Setup the chef client in the way we want
 include_recipe 'chef-client::task'
